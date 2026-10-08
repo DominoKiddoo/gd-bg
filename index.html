@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GD Background Generator</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+
+    <meta property="og:title" content="GD Background Generator" />
+    <meta property="og:description" content="Lets you create and download the backgrounds from geometry dash!" />
+    <meta property="og:url" content="https://gd-bg.dominokiddoo.com" />
+    <meta property="og:image" content="https://gd-bg.dominokiddoo.com/resources/embed.png" />
+    <meta name="theme-color" content="#287dff" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GD Background Generator" />
+    <meta name="twitter:description" content="Lets you create and download the backgrounds from geometry dash!" />
+    <meta name="twitter:image" content="https://gd-bg.dominokiddoo.com/resources/embed.png" />
+
+  </head>
+  <body>
+    <div class="main">
+        <div class="centered">
+
+          <img src="resources/logo.png" style="width: 50%; height: auto;">
+          <h2>Settings</h2>
+          <div class="row">
+            <select id="selection" class="bgSelect">
+              <button slot="button">
+                <selectedcontent></selectedcontent>
+              </button>
+              <br>
+            </select>
+
+            <div class="colour-picker">
+              <input type="color" class="colourInput" id="colourInput" value="#287dff"><br><br>
+              <button style="font-size: 15px;" id="resetBtn">Reset</button>
+            </div>
+          </div>
+
+            
+          <br>
+
+          <div class="imgContainer" id="imgContainer">
+            
+          </div>
+          <br>
+          <button id="downloadBtn">Download Image (Downloads full size)</button>
+          <br>
+          <button id="copyBtn">Copy to clipboard (Copies full size)</button>
+        </div>
+    </div>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>

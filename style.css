@@ -1,0 +1,113 @@
+@font-face {
+    font-family: pusab;
+    src: url(resources/pusab.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+  --selected-colour: #287dff;
+  --selected-url: url("resources/bg/game_bg_01_001-uhd.png");
+}
+
+select, ::picker(select) {
+    appearance: base-select;
+    background-color: antiquewhite;
+}
+
+body {
+    font-family: pusab;
+   background-color: color-mix(in srgb, var(--selected-colour), #000 90%);
+    p, span, h1, h2, h3 {
+        color: white;
+        -webkit-text-stroke: 5px #000000; 
+        paint-order: stroke fill;
+        letter-spacing: 2px;
+    }    
+}
+
+button {
+    font-family: pusab;
+    font-size: 20px;
+    color: white;
+    -webkit-text-stroke: 5px #000000; 
+    paint-order: stroke fill;
+    letter-spacing: 2px;   
+    padding: 5px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.imgContainer img {
+    display: block;
+    mix-blend-mode: multiply; 
+    width: 100%;
+}
+
+
+.imgContainer {
+  width: 21%; 
+  aspect-ratio: 1 / 1; 
+  background-image: var(--selected-url);
+  background-color: var(--selected-colour);
+  background-blend-mode: multiply;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.selectText {
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.colour-picker {
+    background-color:antiquewhite;
+    padding: 5px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 100px;
+    min-height: 75px;
+    outline: 1px solid black;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.colourInput {
+    min-width: 80px;
+    min-height: 40px;
+}
+
+.bgSelect {
+    min-height: 100px;
+}
