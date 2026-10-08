@@ -64,60 +64,59 @@ async function getAndCopy() {
 
 
 function populateImages() {
-  const selection = document.getElementById("selection");
+  const selection = document.getElementById("dynamic-select");
 
   for (let i = 1; i < 60; i++) {
-    // make option
-    var option = document.createElement("option");
-    option.value = "bg" + i;
-
-    // image option
-    var image =  document.createElement("img");
-    image.id = "optionImage";
-
     var formattedNum = i.toString().padStart(2, '0');
-    image.src = "resources/bg/game_bg_" + formattedNum + "_001-uhd.png";
-    image.style.width = "50px";
-    image.style.height = "auto";
-    image.alt = "BG " + i;
-    option.appendChild(image);
 
-    // make span
-    var span = document.createElement("span");
-    span.className = "selectText";
+    var option = document.createElement("option");
 
-    span.textContent = "bg " + i;
-    option.appendChild(span);
+    option.value = "resources/bg/game_bg_" + formattedNum + "_001-uhd.png";
+    option.dataset.img = "resources/bg/game_bg_" + formattedNum + "_001-uhd.png";
+    option.textContent = "BG " + i; 
 
-    // add option
     selection.appendChild(option);
-
-    selection.appendChild(document.createElement("br"));
 
 
   }
+
+  new DynamicSelect('#dynamic-select', {
+    columns: 1,
+    width: '250px',
+    height: '108px',
+    onChange: function(value, text, option) {
+      var r = document.querySelector(':root');
+      r.style.setProperty('--selected-url', `url("${value}")`);
+    }
+
+
+  });
+  
 }
 
-populateImages();
+document.addEventListener("DOMContentLoaded", populateImages);
 
 // setting events
 
 const colInput = document.getElementById('colourInput');
-const bgInput = document.getElementById('selection');
+const bgInput = document.getElementById('dynamic-select');
 
 colInput.addEventListener('input', function(event) {
-  console.log("hha skividi");
   var r = document.querySelector(':root');
   r.style.setProperty('--selected-colour', colInput.value);
 });
 
-bgInput.addEventListener('input', function(event) {
+
+/*
+bgInput.onChange(function(value, text, option) {
+  console.log(value, text, option);
   var image = this.options[this.selectedIndex].querySelector('img').src;
 
-  console.log(image);
   var r = document.querySelector(':root');
   r.style.setProperty('--selected-url', `url("${image}")`);
 });
+*/
+
 
 
 // buttons!

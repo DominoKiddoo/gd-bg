@@ -16,25 +16,32 @@ select, ::picker(select) {
     background-color: antiquewhite;
 }
 
+
 body {
     font-family: pusab;
-   background-color: color-mix(in srgb, var(--selected-colour), #000 90%);
+    background-color: color-mix(in srgb, var(--selected-colour), #000 90%);
     p, span, h1, h2, h3 {
         color: white;
         -webkit-text-stroke: 5px #000000; 
         paint-order: stroke fill;
         letter-spacing: 2px;
-    }    
+    }
+    select {
+        -webkit-text-stroke: 0px override;
+    }
 }
 
 button {
     font-family: pusab;
     font-size: 20px;
-    color: white;
+    color: white;    
+    background-color: antiquewhite;
     -webkit-text-stroke: 5px #000000; 
+    line-height: 23px;
     paint-order: stroke fill;
     letter-spacing: 2px;   
     padding: 5px;
+    border-radius: 10px;
 }
 
 .main {
@@ -63,7 +70,7 @@ button {
 
 
 .imgContainer {
-  width: 21%; 
+  width: 350px; 
   aspect-ratio: 1 / 1; 
   background-image: var(--selected-url);
   background-color: var(--selected-colour);
@@ -110,4 +117,17 @@ button {
 
 .bgSelect {
     min-height: 100px;
+}
+
+.titleLogo {
+    width: 50%; 
+    height: auto;
+}
+
+
+@media (max-width: 1024px) {
+  .titleLogo {
+    width: 110%; 
+    height: auto;
+  }
 }
